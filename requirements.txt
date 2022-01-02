@@ -1,0 +1,5 @@
+Faker
+pyyaml>=6.0
+click>=8.0.3
+tqdm>=4.62.3
+igraph>=0.9.8

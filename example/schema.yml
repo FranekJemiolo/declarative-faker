@@ -1,0 +1,52 @@
+# Schema names have to be unique among multiple directories
+tables:
+  - name: users
+    size: 1000  # Define how many records you want to generate
+    columns:
+      - name: id
+        formatter: random_int  # Use something that will be registered in faker
+        args: []  # args are optional
+        kwargs: {}  # kwargs also are optional
+        unique: true  # unique elements have to be hashable!
+      - name: name
+        formatter: name  # if you do not include args,kwargs,unique default will be used, which are [],{},False
+      - name: country
+        formatter: current_country
+  - name: trades
+    size: 10000
+    columns:
+      - name: id
+        formatter: random_int
+        unique: true
+      - name: buyer_id
+        relationship:  # For relationships you do not include any other fields, as they rely on foreign keys
+          kind: "1-many"  # Available are 1-1, 1-many
+          to: "schema.users.id"
+      - name: seller_id
+        relationship:
+          kind: "1-many"
+          to: "schema.users.id"
+      - name: price
+        formatter: pyfloat
+        kwargs:
+          positive: true
+  - name: trades_report
+    size: 1000
+    columns:
+      - name: id
+        formatter: random_int
+        unique: true
+      - name: trade_id
+        relationship:
+          kind: "1-1"
+          to: "schema.trades.id"
+      - name: message
+        formatter: text
+      - name: buyer_id
+        relationship:
+          kind: "1-many"
+          to: "schema.users.id"
+      - name: seller_id
+        relationship:
+          kind: "1-many"
+          to: "schema.users.id"
