@@ -25,4 +25,10 @@ ll out
 # -rw-r--r--  1 franek  staff   306K Jan  5 15:09 schema.trades.csv
 # -rw-r--r--  1 franek  staff   166K Jan  5 15:09 schema.trades_report.csv
 # -rw-r--r--  1 franek  staff    32K Jan  5 15:09 schema.users.csv
+cat out/schema.trades.csv
+#id,buyer_id,seller_id,price
+#0,2954,4745,678630314038.799
+#1,403,2051,66406442.1806716
+#2,1884,9404,7500077.66942181
+#...
 ```

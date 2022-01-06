@@ -21,7 +21,7 @@ setuptools.setup(
     description="Declarative faker allows you to generate synthetic data from schema definitions using faker",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/FranekJemiolo/declarative_faker",
+    url="https://github.com/FranekJemiolo/declarative-faker",
     install_requires=install_requires,
     setup_requires=setup_requires,
     tests_require=tests_require,
