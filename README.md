@@ -16,6 +16,8 @@ Run `pytest`
 
 ## Example
 
+Schema definition can be found in `example` directory.
+
 To generate fake data run:
 ```bash
 gen_fake --schemas-dir example --out-dir out
