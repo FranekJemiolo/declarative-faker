@@ -1,6 +1,7 @@
 import filecmp
 import os
 
+import pandas as pd
 import pkg_resources
 from click.testing import CliRunner
 
@@ -25,3 +26,10 @@ def test_generate(tmpdir):
     assert len(mismatch) == 0
     assert len(errors) == 0
     assert len(match) == 3
+    # make sure you can load it into a dataframe afterwards
+    trades = pd.read_csv(os.path.join(out_dir, "schema.users.csv"), header=0)
+    assert len(trades) == 1000
+    trades = pd.read_csv(os.path.join(out_dir, "schema.trades.csv"), header=0)
+    assert len(trades) == 10000
+    trades = pd.read_csv(os.path.join(out_dir, "schema.trades_report.csv"), header=0)
+    assert len(trades) == 1000
